@@ -1,0 +1,45 @@
+MedicationAdministration: 
+	nem oltóanyagos gyógyszerek nyomonkövetésére, vakcinákat az Immunization-ban kell tárolni.
+
+	egy beteg adminisztrációs felülete (id, adatok, szabályok, nyelv, szöveg, mit tartalmaz, - , -)
+
+
+MedicationRequest: gyógyszer adagolása és utasításai
+MedicationDispense: ajánlás, pl. mit fogyaszthat utána
+MedicationAdministration: amikor a beteg beveszi a gyógyszert vagy felírja magának
+MedicationStatement: egy rekord arról, hogy használta a gyógyszert, felírták neki, eredmények
+
+Adattagok:
+	identifier 		0..*
+	instantiates	0..*
+	partOf 			0..*
+	status 			1 pl. kész/folyamatban/hibás stb.
+	statusReason 	0..* ..miért ^
+	category		0..1 
+	medication 		1
+		medicationCodeableConcept
+		medicationReference
+	subject			1 ki a kapta
+	context			0..1 ???
+	supportingInformation 1 adminisztrációt segítő infók
+	effective		1 adminisztáció kezdete-vége
+		effectiveDateTime
+		effectivePeriod = időintervallum
+	performer		0..* ki írta és miért
+		function 	0..1 mit csinált
+		actor ki	1
+	reasonCode		0..* miért írta
+	reasonReference	0..* miért kellett a gyógyszert adminisztrálni
+	request 		0..1 melyik kérésre lett a gyógyszer kiírva
+	device			0..* milyen eszközről
+	note 			0..* info az adatbevitelről
+	dosage 			0..1
+		text 		0..1 
+		site		0..1
+		route 		0..1 hova kell beadni
+		method 		0..1 hogyan kell beadni
+		dose 		0..1 beadásonként mennyi kell
+		rate		0..1 mennyit milyen sűrűn
+			rateRatio milyen sűrűn
+			rateQuantity mennyit
+	eventHistory 	0..* előzmények

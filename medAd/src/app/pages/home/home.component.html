@@ -1,10 +1,8 @@
-
 <div [ngSwitch]="category">
-    <div *ngSwitchCase="'rekord'">
-
+    <div *ngSwitchCase="'rekord'" class="container">
+        <app-rekord-card *ngFor="let rekord of rekords" [rekord]="rekord"></app-rekord-card>
     </div>
-    <div *ngSwitchDefault>
-        //31.perc
+    <div *ngSwitchDefault class="container">
+        <app-splash-screen></app-splash-screen>
     </div>
-    
 </div>

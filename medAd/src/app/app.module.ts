@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HomeModule } from './pages/home/home.module';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -10,9 +10,11 @@ import { HomeModule } from './pages/home/home.module';
   ],
   imports: [
     BrowserModule,
-    HomeModule
+    HomeModule,
+    MatCardModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [MatCardModule]
 })
 export class AppModule { }

@@ -1,8 +1,34 @@
-<div [ngSwitch]="category">
-    <div *ngSwitchCase="'rekord'" class="container">
+<span [ngSwitch]="page">
+
+  <span *ngSwitchCase="'home'">
+    <app-nav [categories]="categories"></app-nav>
+    <span [ngSwitch]="category">
+      <span *ngSwitchCase="'rekord'" class="container">
         <app-rekord-card *ngFor="let rekord of rekords" [rekord]="rekord"></app-rekord-card>
-    </div>
-    <div *ngSwitchDefault class="container">
+      </span>
+      <span *ngSwitchCase="'rekord'" class="container">
+        <app-rekord-card></app-rekord-card>
+      </span>
+
+      <span *ngSwitchCase="'favorite'" class="container">
+        <app-favorite-card></app-favorite-card>
+      </span>
+
+      <span *ngSwitchDefault class="container">
         <app-splash-screen></app-splash-screen>
-    </div>
-</div>
+      </span>
+    </span>
+  </span>
+
+  <span *ngSwitchCase="'register'">
+    <app-register></app-register>
+  </span>
+
+  <span *ngSwitchCase="'details'">
+    <app-details></app-details>
+  </span>
+
+  <span *ngSwitchDefault>
+    <app-login></app-login>
+  </span>
+</span>

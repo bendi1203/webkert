@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CATEGORIES } from 'src/app/shared/database/category.database';
 import { REKORDS } from './../../shared/database/rekord.database';
 
 @Component({
@@ -7,8 +8,11 @@ import { REKORDS } from './../../shared/database/rekord.database';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy{
+  categories = CATEGORIES;
   rekords = REKORDS;
   category?= '';
+  page = 'home';
+
   constructor() { }
 
   ngOnInit(): void {

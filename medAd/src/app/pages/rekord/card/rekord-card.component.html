@@ -1,9 +1,25 @@
 <mat-card *ngIf="rekord">
     <mat-card-header>
-        <mat-card-title>{{rekord.name}}</mat-card-title>
-        <mat-card-subtitle>{{rekord.id}}</mat-card-subtitle>
+        <mat-card-title>{{rekord.identifier}}</mat-card-title>
+        <mat-card-subtitle>{{rekord.instantiates}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <p>{{rekord.description}}</p>
+        <p>{{rekord.partOf}}</p>
+        <p>{{rekord.status}}</p>
+        <p>{{rekord.statusReason}}</p>
+        <p>{{rekord.category}}</p>
+        <p>{{rekord.medication}}</p>
+        <p>{{rekord.subject}}</p>
+        <p>{{rekord.context}}</p>
+        <p>{{rekord.supportInformation}}</p>
+        <p>{{rekord.effective}}</p>
+        <p>{{rekord.performer}}</p>
+        <p>{{rekord.reasonCode}}</p>
+        <p>{{rekord.reasonReference}}</p>
+        <p>{{rekord.request}}</p>
+        <p>{{rekord.device}}</p>
+        <p>{{rekord.note}}</p>
+        <p>{{rekord.dosage}}</p>
+        <p>{{rekord.eventHistory}}</p>
     </mat-card-content>
 </mat-card>

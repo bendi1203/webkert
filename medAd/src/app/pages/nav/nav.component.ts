@@ -7,8 +7,10 @@ import { Category } from 'src/app/shared/models/category.model';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+  sCategoryTitle?:string;
+  @Input() selectedCategory?: string;
   @Input() categories: Category[] = [];
-
+  
   constructor() { }
 
   ngOnInit(): void {

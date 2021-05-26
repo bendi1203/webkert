@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomeModule } from './pages/home/home.module';
 import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     BrowserModule,
     HomeModule,
-    MatCardModule
+    MatCardModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

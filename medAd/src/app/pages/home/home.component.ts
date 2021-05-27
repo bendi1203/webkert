@@ -3,6 +3,7 @@ import { CATEGORIES } from 'src/app/shared/database/category.database';
 import { REKORDS } from './../../shared/database/rekord.database';
 import { MatDialog } from '@angular/material/dialog';
 import { RekordAddComponent } from '../rekord/add/rekord-add/rekord-add.component';
+import { Rekord } from 'src/app/shared/models/rekord.model';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit, OnDestroy{
   categories = CATEGORIES;
   rekords = REKORDS;
   category?= '';
-  page = 'homer';
+  page = 'home';
+  detailData: any;
 
   constructor(private dialog: MatDialog) { }
 
@@ -27,6 +29,11 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   onSelect(event:string): void{
       this.category = event;
+  }
+
+  goToDetails(event: Rekord): void {
+    this.detailData = event;
+    this.page = 'details';
   }
 
    openDialog(): void {

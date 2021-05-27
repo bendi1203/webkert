@@ -2,7 +2,8 @@
 
   <span *ngSwitchCase="'home'">
     <app-nav [categories]="categories" (callSelectC)="onSelect($event)" (callSelectPage)="page = $event"></app-nav>
-    <app-rekord-card *ngFor="let rekord of rekords" [rekord]="rekord" class="container"></app-rekord-card >
+    <app-rekord-card *ngFor="let rekord of rekords" [rekord]="rekord" class="container" appOnHover (getRekord)="goToDetails($event)">
+    </app-rekord-card >
     <button mat-fab class="action-btn" (click)="openDialog()">
       <mat-icon>add</mat-icon>
     </button>

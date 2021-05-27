@@ -3,11 +3,6 @@
     <a mat-button (click)="select('')">
       Főoldal
     </a>
-
-    <button mat-button *ngFor="let item of categories" (click)="select(item.value)">
-      {{item.title}}&nbsp;
-      <mat-icon>{{item.icon}}</mat-icon>
-    </button>
     <span style="flex: 1 1;"></span>
     <button mat-button [matMenuTriggerFor]="menu">
       Felhasznalo&nbsp;
@@ -27,10 +22,5 @@
         <span>Kijelentkezés</span>
       </button>
     </mat-menu>
-
   </mat-toolbar-row>
-  <mat-toolbar-row>
-    <span class="splash-title">{{sCategoryTitle}}</span>
-  </mat-toolbar-row>
-
 </mat-toolbar>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-splash-screen',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./splash-screen.component.scss']
 })
 export class SplashScreenComponent implements OnInit {
+  @Output() callSelectC = new EventEmitter<string>();
 
   constructor() { }
 

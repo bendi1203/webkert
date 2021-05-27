@@ -7,13 +7,25 @@ import { Rekord } from './../../../shared/models/rekord.model';
   styleUrls: ['./rekord-card.component.scss']
 })
 export class RekordCardComponent implements OnInit {
+
   @Input() rekord?: Rekord;
-  @Output() callFavorite = new EventEmitter<Rekord | null>();
+ 
+  @Output() callDetails = new EventEmitter<Rekord | null>();
   @Output() getRekord = new EventEmitter<Rekord>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
+/* újítás */
+information(event: any):void{
+  event.stopPropagation();
+  this.callDetails.emit(this.rekord);
+}
 
+/*goToEdit(event: Rekord): void {
+  this.detailData = event;
+  this.page = 'edit';
+}
+*/
 }

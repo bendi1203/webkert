@@ -1,15 +1,13 @@
-<mat-card *ngIf="rekord">
+<mat-card *ngIf="rekord" (click)="getRekord.emit(rekord)">
   <mat-card-header>
     <mat-card-title>{{rekord.identifier}}</mat-card-title>
-    <mat-card-subtitle>{{rekord.instantiates}}</mat-card-subtitle>
-    <button mat-mini-fab color="none" aria-label="Information">
-      <mat-icon>info</mat-icon>
-    </button>
-    <button mat-mini-fab color="none" aria-label="Edit">
+    <mat-card-subtitle></mat-card-subtitle>
+    <button mat-mini-fab color="none" aria-label="Edit" class="edit">
         <mat-icon>edit</mat-icon>
       </button>
   </mat-card-header>
   <mat-card-content>
+    <p>{{rekord.instantiates}}</p>
     <p>{{rekord.partOf}}</p>
     <p>{{rekord.status}}</p>
     <p>{{rekord.statusReason}}</p>

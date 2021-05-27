@@ -29,7 +29,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     DetailsModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+
   ],
   exports: [
     HomeComponent

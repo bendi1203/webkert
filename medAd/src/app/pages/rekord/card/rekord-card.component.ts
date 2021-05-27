@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Rekord } from './../../../shared/models/rekord.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { Rekord } from './../../../shared/models/rekord.model';
 })
 export class RekordCardComponent implements OnInit {
   @Input() rekord?: Rekord;
+  @Output() callFavorite = new EventEmitter<Rekord | null>();
+  @Output() getRekord = new EventEmitter<Rekord>();
 
   constructor() { }
 

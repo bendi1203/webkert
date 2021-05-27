@@ -1,7 +1,7 @@
 <span [ngSwitch]="page">
 
   <span *ngSwitchCase="'home'">
-    <app-nav [categories]="categories"></app-nav>
+    <app-nav [categories]="categories" (callSelectC)="onSelect($event)" (callSelectPage)="page = $event"></app-nav>
     <app-rekord-card *ngFor="let rekord of rekords" [rekord]="rekord" class="container"></app-rekord-card >
     <button mat-fab class="action-btn" (click)="openDialog()">
       <mat-icon>add</mat-icon>
@@ -9,7 +9,7 @@
   </span>
 
   <span *ngSwitchCase="'register'">
-    <app-register></app-register>
+    <app-register (callSelectPage)="page = $event"></app-register>
   </span>
 
   <span *ngSwitchCase="'details'">
@@ -17,6 +17,6 @@
   </span>
 
   <span *ngSwitchDefault>
-    <app-login></app-login>
+    <app-login (callSelectPage)="page = $event"></app-login>
   </span>
 </span>

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   categories = CATEGORIES;
   rekords = REKORDS;
   category?= '';
-  page = 'home';
+  page = 'homer';
 
   constructor(private dialog: MatDialog) { }
 
@@ -23,6 +23,10 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     delete this.category;
+  }
+
+  onSelect(event:string): void{
+      this.category = event;
   }
 
    openDialog(): void {

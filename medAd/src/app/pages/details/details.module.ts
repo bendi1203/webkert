@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DetailsComponent } from './details.component';
-import {MatTableModule} from '@angular/material/table';
-
-
+import { RekordCardModule } from '../rekord/card/rekord-card.module';
 
 @NgModule({
   declarations: [
     DetailsComponent
   ],
   imports: [
-    CommonModule,MatTableModule
+    CommonModule, RekordCardModule
   ],
   exports: [
     DetailsComponent

@@ -1,10 +1,10 @@
 <mat-toolbar class="toolbar">
   <mat-toolbar-row>
-    <a mat-button>
+    <a mat-button (click)="select('')">
       Főoldal
     </a>
 
-    <button mat-button *ngFor="let item of categories">
+    <button mat-button *ngFor="let item of categories" (click)="select(item.value)">
       {{item.title}}&nbsp;
       <mat-icon>{{item.icon}}</mat-icon>
     </button>
@@ -22,7 +22,7 @@
         <mat-icon>settings</mat-icon>
         <span>Beállítások</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="callSelectPage.emit('')">
         <mat-icon>arrow_back</mat-icon>
         <span>Kijelentkezés</span>
       </button>

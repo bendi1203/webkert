@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +9,15 @@ export class LoginComponent implements OnInit {
 
   @Output() callSelectPage = new EventEmitter<string>();
 
+  @HostListener('window:keydown.enter', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    this.callSelectPage.emit('home');
+  }
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  
 
 }

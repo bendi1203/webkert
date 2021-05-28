@@ -17,7 +17,7 @@ export class RekordCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-/* újítás */
+  
 information(event: any):void{
   event.stopPropagation();
   this.callDetails.emit(this.rekord);

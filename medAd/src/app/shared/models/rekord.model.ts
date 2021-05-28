@@ -21,13 +21,13 @@ export interface Rekord {
 }
 
 export interface Medication{
-    medicationCodeableConcept: string;
-    medicationReference: string;
+    medicationCodeableConcept?: string;
+    medicationReference?: string;
 }
 
 export interface Effective {
-    effectiveDateTime: string; //majd át kell írni date-ra
-    effectivePeriod: string; //-tól -ig
+    effectiveDateTime?: string; //majd át kell írni date-ra
+    effectivePeriod?: string; //-tól -ig
 }
 
 export interface Perfomer {
@@ -45,6 +45,6 @@ export interface Dosage {
 }
 
 export interface Rate {
-    rateRatio: string;
-    rateQuantity: string;
+    rateRatio?: string;
+    rateQuantity?: string;
 }

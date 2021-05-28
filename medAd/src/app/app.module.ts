@@ -1,22 +1,24 @@
-import { NgModule } from '@angular/core';
+import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HomeModule } from './pages/home/home.module';
-import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeModule } from './pages/home/home.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    HomeModule,
-    MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    HomeModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  exports: [MatCardModule]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

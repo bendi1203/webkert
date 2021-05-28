@@ -12,6 +12,8 @@ import { DetailsModule } from '../details/details.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RekordAddModule } from '../rekord/add/rekord-add/rekord-add.module';
+
 
 
 
@@ -30,7 +32,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-
+    RekordAddModule
   ],
   exports: [
     HomeComponent

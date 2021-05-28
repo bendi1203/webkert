@@ -22,8 +22,8 @@ information(event: any):void{
   event.stopPropagation();
   this.callDetails.emit(this.rekord);
 }
-
-/*goToEdit(event: Rekord): void {
+/*
+goToEdit(event: Rekord): void {
   this.detailData = event;
   this.page = 'edit';
 }

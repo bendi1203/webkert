@@ -1,1 +1,85 @@
-<p>rekord-add works!</p>
+<form [formGroup]="form" class="form">
+  <h3>Rekord hozzáadása</h3>
+
+  <mat-form-field class="max-width">
+    <mat-label>identifier</mat-label>
+    <input matInput focus placeholder="Ide írhatsz.." formControlName="identifier" required>
+  </mat-form-field>
+
+  <mat-label>instantiates</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="instantiates" matInput cdkTextareaAutosize
+    cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>partOf</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="partOf" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>status</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="status" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>statusReason</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="statusReason" matInput cdkTextareaAutosize
+    cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>category</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="category" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>medication</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="medication" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>subject</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="subject" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>context</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="context" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>supportInformation</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="supportInformation" matInput cdkTextareaAutosize
+    cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>effective</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="effective" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>performer</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="performer" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>reasonCode</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="reasonCode" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>reasonReference</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="reasonReference" matInput cdkTextareaAutosize
+    cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>request</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="request" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>device</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="device" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>note</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="note" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>dosage</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="dosage" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+    cdkAutosizeMaxRows="5"></textarea>
+
+  <mat-label>eventHistory</mat-label>
+  <textarea placeholder="Ide írhatsz.." formControlName="eventHistory" matInput cdkTextareaAutosize
+    cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+
+  <div style="display: flex; justify-content: flex-end;">
+    <button mat-button (click)="dialogRef.close()" class="margin-right">MÉGSEM</button>
+    <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">FELVÉTEL</button>
+  </div>
+</form>

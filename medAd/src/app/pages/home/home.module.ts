@@ -13,6 +13,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RekordAddModule } from '../rekord/add/rekord-add/rekord-add.module';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 
@@ -32,7 +35,7 @@ import { RekordAddModule } from '../rekord/add/rekord-add/rekord-add.module';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    RekordAddModule
+    RekordAddModule,
   ],
   exports: [
     HomeComponent

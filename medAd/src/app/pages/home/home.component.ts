@@ -40,7 +40,8 @@ export class HomeComponent implements OnInit, OnDestroy{
     const dialogRef = this.dialog.open(RekordAddComponent, {});
     // tslint:disable-next-line: deprecation
     dialogRef.afterClosed().subscribe(result => {
-      if (result && result.title) {
+      console.log(result);
+      if (result) {
         this.rekords.push(result);
       }
     });

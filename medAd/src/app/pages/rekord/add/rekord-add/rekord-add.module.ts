@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
+    ScrollingModule
   ],
   exports: [RekordAddComponent]
 })

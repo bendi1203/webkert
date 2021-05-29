@@ -4,6 +4,7 @@ import { REKORDS } from './../../shared/database/rekord.database';
 import { MatDialog } from '@angular/material/dialog';
 import { RekordAddComponent } from '../rekord/add/rekord-add/rekord-add.component';
 import { Rekord } from 'src/app/shared/models/rekord.model';
+import { FbBaseService } from './../../services/fb-base.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   page = 'home';
   detailData: any;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private service: FbBaseService) { }
 
   ngOnInit(): void {
     this.category = 'details';
@@ -39,11 +40,14 @@ export class HomeComponent implements OnInit, OnDestroy{
    openDialog(): void {
     const dialogRef = this.dialog.open(RekordAddComponent, {});
     // tslint:disable-next-line: deprecation
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      if (result) {
-        this.rekords.push(result);
+    dialogRef.afterClosed().subscribe((rekord: Rekord) => {
+      console.log(rekord);
+      if (rekord) {
+        this.rekords.push(rekord);
+        this.service.add('rekords', rekord)
       }
+    }, err => {
+      console.warn(err);
     });
   }
 }

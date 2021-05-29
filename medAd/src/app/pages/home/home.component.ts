@@ -5,15 +5,17 @@ import { MatDialog } from '@angular/material/dialog';
 import { RekordAddComponent } from '../rekord/add/rekord-add/rekord-add.component';
 import { Rekord } from 'src/app/shared/models/rekord.model';
 import { FbBaseService } from './../../services/fb-base.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy{
+export class HomeComponent implements OnInit, OnDestroy {
   categories = CATEGORIES;
-  rekords = REKORDS;
+  //rekords = REKORDS;
+  rekords: Observable<Rekord[]> | null = null;
   category?= '';
   page = 'home';
   detailData: any;
@@ -22,14 +24,19 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.category = 'details';
+    this.getRekords();
   }
 
   ngOnDestroy(): void {
     delete this.category;
   }
 
-  onSelect(event:string): void{
-      this.category = event;
+  getRekords(): void {
+    this.rekords = this.service.get('rekords');
+  }
+
+  onSelect(event: string): void {
+    this.category = event;
   }
 
   goToDetails(event: Rekord): void {
@@ -37,13 +44,12 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.page = 'details';
   }
 
-   openDialog(): void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(RekordAddComponent, {});
     // tslint:disable-next-line: deprecation
     dialogRef.afterClosed().subscribe((rekord: Rekord) => {
       console.log(rekord);
       if (rekord) {
-        this.rekords.push(rekord);
         this.service.add('rekords', rekord)
       }
     }, err => {

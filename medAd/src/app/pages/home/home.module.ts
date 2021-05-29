@@ -16,6 +16,7 @@ import { RekordAddModule } from '../rekord/add/rekord-add/rekord-add.module';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -36,6 +37,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatIconModule,
     MatDialogModule,
     RekordAddModule,
+    RouterModule
   ],
   exports: [
     HomeComponent

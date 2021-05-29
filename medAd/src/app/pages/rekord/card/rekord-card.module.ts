@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RekordCardComponent } from './rekord-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ],
   exports: [RekordCardComponent]
 })

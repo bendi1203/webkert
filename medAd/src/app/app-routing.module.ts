@@ -1,6 +1,10 @@
 import { DetailsModule } from './pages/details/details.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 const routes: Routes = [
   {
@@ -11,18 +15,22 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+    component: HomeComponent
   },
   {
-    path: 'registration',
+    path: 'register',
     loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule),
+    component: RegisterComponent
   },
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
+    component: LoginComponent
   },
   {
-    path: 'details',
+    path: 'details/:rekordId',
     loadChildren: () => import('./pages/details/details.module').then(m => m.DetailsModule),
+    component: DetailsComponent
   },
   {
     path: '**',

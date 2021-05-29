@@ -7,8 +7,8 @@ import { HomeModule } from './pages/home/home.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterModule } from './pages/register/register.module';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +19,7 @@ import { RegisterModule } from './pages/register/register.module';
     AngularFirestoreModule,
     AngularFireAuthModule,
     HomeModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

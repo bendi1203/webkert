@@ -1,2 +1,36 @@
-<!-- <app-rekord-card></app-rekord-card> -->
-details
+<div *ngIf="rekord != null">
+    <p>{{rekord.instantiates}}</p>
+    <p>{{rekord.partOf}}</p>
+    <p>{{rekord.status}}</p>
+    <p>{{rekord.statusReason}}</p>
+    <p>{{rekord.category}}</p>
+    <p *ngIf="rekord.medication">
+      {{rekord.medication.medicationReference !== undefined ? rekord.medication.medicationReference : rekord.medication.medicationCodeableConcept}}
+    </p>
+    <p>{{rekord.subject}}</p>
+    <p>{{rekord.context}}</p>
+    <p>{{rekord.supportInformation}}</p>
+    <p *ngIf="rekord.effective">
+      {{rekord.effective.effectiveDateTime !== undefined ? rekord.effective.effectiveDateTime : rekord.effective.effectivePeriod}}
+    </p>
+    <p *ngIf="rekord.performer">{{rekord.performer.function}}, {{rekord.performer.actor}}</p>
+    <p>{{rekord.reasonCode}}</p>
+    <p>{{rekord.reasonReference}}</p>
+    <p>{{rekord.request}}</p>
+    <p>{{rekord.device}}</p>
+    <p>{{rekord.note}}</p>
+    <ul *ngIf="rekord.dosage">
+      <li>{{rekord.dosage.text}}<br></li>
+      <li> {{rekord.dosage.site}}<br></li>
+      <li>{{rekord.dosage.route}}<br></li>
+      <li>{{rekord.dosage.method}}<br></li>
+      <li>{{rekord.dosage.dose}}<br></li>
+      <ul *ngIf="rekord.dosage.rate">
+        <li>
+          {{rekord.dosage.rate.rateRatio !== undefined ? rekord.dosage.rate.rateRatio : rekord.dosage.rate.rateQuantity}}
+        </li>
+      </ul>
+    </ul>
+    <!-- <p *ngFor="let dosage of rekord.dosage [rekord.dosage] = rekord.dosage"></p> -->
+    <p>{{rekord.eventHistory}}</p>
+</div>

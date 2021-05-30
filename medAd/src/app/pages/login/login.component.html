@@ -11,9 +11,9 @@
           <mat-label>Jelszó</mat-label>
           <input type="password" name="password" matInput minlength="6" placeholder="Jelszó" formControlName="password">
         </mat-form-field>
-        <div><button mat-button color="accent" (click)="callSelectPage.emit('register')">REGISZTRÁCIÓ</button></div>
+        <div><button mat-button color="accent" [routerLink]="['/register']">REGISZTRÁCIÓ</button></div>
         <br>
-        <button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid">BEJELENTKEZÉS</button>
+        <button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid" [routerLink]="['/home']">BEJELENTKEZÉS</button>
       </form>
     </mat-card>
   </div>

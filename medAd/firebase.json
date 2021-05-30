@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/medAd",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

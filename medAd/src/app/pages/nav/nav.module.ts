@@ -8,11 +8,12 @@ import { NavComponent } from './nav.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [NavComponent],
   imports: [
-    CommonModule, MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatAutocompleteModule, MatInputModule, FormsModule, ReactiveFormsModule
+    CommonModule, MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatAutocompleteModule, MatInputModule, FormsModule, ReactiveFormsModule, RouterModule
   ],
   exports: [NavComponent],
 })

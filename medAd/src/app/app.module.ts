@@ -9,6 +9,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { NavModule } from './pages/nav/nav.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     AngularFireAuthModule,
     HomeModule,
     AppRoutingModule,
+    NavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

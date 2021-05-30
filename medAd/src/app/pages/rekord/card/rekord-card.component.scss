@@ -1,10 +1,10 @@
 mat-card-title {
-    color: black;
-    font-size: 50px
+    color: white;
+    font-size: 20px
   }
 
 mat-card-subtitle{
-    font-size: 30px;
+    font-size: 20px;
     color: white;
 }
 
@@ -13,16 +13,16 @@ mat-card-content {
     text-align: center;
 }
 
+mat-card-header {
+    text-align: center;
+    background-color:#263859;
+}
+
 mat-card {
     display:inline-block;
     min-width: 200px;
     flex: 1;
     margin: 4px;
-    background-color: lightslategray;
-}
-
-.edit{
-    position: relative;
-    left: 70%;
-    top: 5%;
+    background-color: white;
+    padding: 0px;
 }

@@ -1,4 +1,4 @@
-<div *ngIf="rekord != null">
+<div *ngIf="rekord != null" class="details">
   <div *ngFor="let item of rekord.identifier">
     <p>{{item.use}}</p>
     <ul *ngIf="item.type">

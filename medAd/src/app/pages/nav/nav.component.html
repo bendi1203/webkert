@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
   <mat-toolbar-row>
-    <a mat-button (click)="select('')">
+    <a mat-button [routerLink]="['/home']">
       Főoldal
     </a>
     <span style="flex: 1 1;"></span>
@@ -24,16 +24,4 @@
     </mat-menu>
   </mat-toolbar-row>
 
-  <mat-toolbar-row>
-    Kereső: 
-    <div class="searchbar">
-      <input type="text" placeholder="Keresés" matInput [formControl]="myControl" [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
-    </div>
-
-  </mat-toolbar-row>
 </mat-toolbar>

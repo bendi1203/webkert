@@ -1,7 +1,7 @@
-<span [ngSwitch]="page">
+<span [ngSwitch]="page" class="details">
 
   <span *ngSwitchCase="'home'">
-    <app-nav [categories]="categories" (callSelectC)="onSelect($event)" (callSelectPage)="page = $event"></app-nav>
+    <!-- <app-nav [categories]="categories" (callSelectC)="onSelect($event)" (callSelectPage)="page = $event"></app-nav> -->
 
     <app-rekord-card *ngFor="let rekord of rekords | async" [rekord]="rekord" class="container" appOnHover
       >

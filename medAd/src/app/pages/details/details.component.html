@@ -1,8 +1,9 @@
 <div *ngIf="rekord != null" class="details">
-  <div *ngFor="let item of rekord.identifier">
+  <div class="cim">Részletes adatok</div><br>
+  <div *ngFor="let item of rekord.identifier" class="record">
     <p>{{item.use}}</p>
-    <ul *ngIf="item.type">
-      <ul *ngFor="let item2 of item.type.coding">
+    <ul *ngIf="item.type" class="list">
+      <ul *ngFor="let item2 of item.type.coding" class="list">
         <li>{{item2.system}}</li>
         <li>{{item2.version}}</li>
         <li>{{item2.code}}</li>
@@ -19,20 +20,20 @@
     <p>{{item.assigner}}</p>
   </div>
 
-  <div *ngFor="let item3 of rekord.instantiates">
+  <div *ngFor="let item3 of rekord.instantiates" class="record">
     <p>{{rekord.instantiates}}</p>
   </div>
 
-  <div>
-    <p>{{rekord.partOf}}</p>
+  <div class="record">
+    <p>{{rekord.partOf}}</p> 
   </div>
 
-  <div>
+  <div class="record">
     <p>{{rekord.status}}</p>
   </div>
 
-  <div *ngFor="let item4 of rekord.statusReason">
-    <ul *ngIf="item4.coding">
+  <div *ngFor="let item4 of rekord.statusReason" class="record">
+    <ul *ngIf="item4.coding" class="list">
       <ul *ngFor="let item5 of item4.coding">
         <li>{{ item5.system }}</li>
         <li>{{ item5.version }}</li>
@@ -44,8 +45,8 @@
     </ul>
   </div>
 
-  <div *ngIf="rekord.category && rekord.category.coding ">
-    <ul *ngFor="let item7 of rekord.category.coding">
+  <div *ngIf="rekord.category && rekord.category.coding" class="record">
+    <ul *ngFor="let item7 of rekord.category.coding" class="list">
       <li>{{ item7.system }}</li>
       <li>{{ item7.version }}</li>
       <li>{{ item7.code }}</li>
@@ -54,33 +55,33 @@
     </ul>
   </div>
 
-  <div>
+  <div class="record">
     <p *ngIf="rekord.medication">
       {{rekord.medication.medicationReference !== undefined ? rekord.medication.medicationReference : rekord.medication.medicationCodeableConcept}}
     </p>
   </div>
 
-  <div>
+  <div class="record">
     <p>{{rekord.subject}}</p>
   </div>
 
-  <div>
+  <div class="record">
     <p>{{rekord.context}}</p>
   </div>
 
-  <div *ngFor="let item8 of rekord.supportInformation">
+  <div *ngFor="let item8 of rekord.supportInformation" class="record">
     <p>{{rekord.supportInformation}}</p>
   </div>
 
-  <div>
+  <div class="record">
     <p *ngIf="rekord.effective">
       {{rekord.effective.effectiveDateTime !== undefined ? rekord.effective.effectiveDateTime : rekord.effective.effectivePeriod}}
     </p>
   </div>
 
-  <div *ngFor="let perf of rekord.performer">
+  <div *ngFor="let perf of rekord.performer" class="record">
     <ng-container *ngIf="perf.function && perf.function.coding">
-      <ul *ngFor="let coding of perf.function.coding">
+      <ul *ngFor="let coding of perf.function.coding" class="list">
         <li>{{ coding.system }}</li>
         <li>{{ coding.version }}</li>
         <li>{{ coding.code }}</li>
@@ -92,9 +93,9 @@
     <p>{{perf.actor}}</p>
   </div>
 
-  <div *ngFor="let item12 of rekord.statusReason">
+  <div *ngFor="let item12 of rekord.statusReason" class="record">
     <ng-container *ngIf="item12.coding">
-      <ul *ngFor="let item13 of item12.coding">
+      <ul *ngFor="let item13 of item12.coding" class="list">
         <li>{{ item13.system }}</li>
         <li>{{ item13.version }}</li>
         <li>{{ item13.code }}</li>
@@ -105,27 +106,27 @@
     </ng-container>
   </div>
 
-  <div *ngFor="let item14 of rekord.reasonReference">
+  <div *ngFor="let item14 of rekord.reasonReference" class="record">
     <p>{{rekord.reasonReference}}</p>
   </div>
 
-  <div>
+  <div class="record">
     <p>{{rekord.request}}</p>
   </div>
 
-  <div *ngFor="let item15 of rekord.device">
+  <div *ngFor="let item15 of rekord.device" class="record">
     <p>{{rekord.device}}</p>
   </div>
 
-  <div>
+  <div class="record">
     <p>{{rekord.note}}</p>
   </div>
 
 
-  <div *ngIf="rekord.dosage">
-    <li>{{rekord.dosage.text}}</li>
+  <div *ngIf="rekord.dosage" class="record">
+    <p>{{rekord.dosage.text}}</p>
 
-    <ul *ngIf="rekord.dosage.site">
+    <ul *ngIf="rekord.dosage.site" class="list">
       <div *ngIf="rekord.dosage.site">
         <ul *ngIf="rekord.dosage.site.coding">
           <ul *ngFor="let item17 of rekord.dosage.site.coding">
@@ -140,7 +141,7 @@
       </div>
     </ul>
 
-    <ul *ngIf="rekord.dosage.route">
+    <ul *ngIf="rekord.dosage.route" class="list">
       <div *ngIf="rekord.dosage.route">
         <ul *ngIf="rekord.dosage.route.coding">
           <ul *ngFor="let item19 of rekord.dosage.route.coding">
@@ -155,10 +156,10 @@
       </div>
     </ul>
 
-    <ul *ngIf="rekord.dosage.method">
+    <ul *ngIf="rekord.dosage.method" class="list">
       <div *ngIf="rekord.dosage.method">
-        <ul *ngIf="rekord.dosage.method.coding">
-          <ul *ngFor="let item21 of rekord.dosage.method.coding">
+        <ul *ngIf="rekord.dosage.method.coding" class="list">
+          <ul *ngFor="let item21 of rekord.dosage.method.coding" class="list">
             <li>{{ item21.system }}</li>
             <li>{{ item21.version }}</li>
             <li>{{ item21.code }}</li>
@@ -177,7 +178,7 @@
       <p>{{ rekord.dosage.dose.code }}</p>
     </ng-container>
 
-    <ul *ngIf="rekord.dosage.rate">
+    <ul *ngIf="rekord.dosage.rate" class="list">
           <p>{{rekord.dosage.rate.value }}</p>
           <p>{{rekord.dosage.rate.unit }}</p>
           <p>{{rekord.dosage.rate.system }}</p>
@@ -185,12 +186,12 @@
     </ul>
   </div>
 
-  <div *ngFor="let item23 of rekord.eventHistory">
+  <div *ngFor="let item23 of rekord.eventHistory" class="record">
     <p>{{rekord.eventHistory}}</p>
   </div>
 
+  <button mat-mini-fab color="none" aria-label="Delete" class="delete" (click)="delete()" [routerLink]="['/home']" class="button">
+    <mat-icon>delete</mat-icon>
+  </button>
 
 </div>
-<button mat-mini-fab color="none" aria-label="Delete" class="delete" (click)="delete()" [routerLink]="['/home']">
-  <mat-icon>delete</mat-icon>
-</button>

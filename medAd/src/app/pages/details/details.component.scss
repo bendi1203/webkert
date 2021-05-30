@@ -1,5 +1,32 @@
-.details{
-    margin: auto;
-    width: 50%;
-    background-color: gray;
+.details {
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 5%;
+  width: 50%;
+  background-color: gray;
+
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.record {
+  text-align: center;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+/*.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}*/
+
+.button {
+  position: relative;
+  left: 80%;
+
+}
+.cim{
+    text-align: center;
+    font-size: xx-large;
+    padding: 10px;
 }

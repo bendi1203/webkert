@@ -29,4 +29,10 @@ export class DetailsComponent implements OnInit {
     }
   }
 
+  delete(): void{
+    if(this.rekordId != null){
+      this.service.delete('rekords' ,this.rekordId);
+    }
+  }
+
 }

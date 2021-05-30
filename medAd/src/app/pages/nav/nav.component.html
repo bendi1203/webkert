@@ -23,4 +23,17 @@
       </button>
     </mat-menu>
   </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    Kereső: 
+    <div class="searchbar">
+      <input type="text" placeholder="Keresés" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+
+  </mat-toolbar-row>
 </mat-toolbar>

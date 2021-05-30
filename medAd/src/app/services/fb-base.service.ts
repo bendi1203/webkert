@@ -14,9 +14,9 @@ export class FbBaseService {
     return this.afs.collection(collectionName).valueChanges() as Observable<Rekord[]>;
   }
 
-  async add(collectionName: string, data: Rekord, identifier?: string): Promise<string> {
-    const uid = identifier ? identifier : this.afs.createId();
-    data.identifier = uid;
+  async add(collectionName: string, data: Rekord, azonosito?: string): Promise<string> {
+    const uid = azonosito ? azonosito : this.afs.createId();
+    data.azonosito = uid;
     await this.afs.collection(collectionName).doc(uid).set(data);
     return uid;
   }
@@ -26,15 +26,15 @@ export class FbBaseService {
     return this.afs.collection(collectionName).add(data);
   }
 
-  getById(collectionName: string, identifier: string): Observable<any> {
-    return this.afs.collection(collectionName).doc(identifier).valueChanges();
+  getById(collectionName: string, azonosito: string): Observable<any> {
+    return this.afs.collection(collectionName).doc(azonosito).valueChanges();
   }
 
-  update(collectionName: string, identifier: string, data: any) {
-    return this.afs.collection(collectionName).doc(identifier).update(data);
+  update(collectionName: string, azonosito: string, data: any) {
+    return this.afs.collection(collectionName).doc(azonosito).update(data);
   }
 
-  delete(collectionName: string, identifier: string) {
-    return this.afs.collection(collectionName).doc(identifier).delete();
+  delete(collectionName: string, azonosito: string) {
+    return this.afs.collection(collectionName).doc(azonosito).delete();
   }
 }

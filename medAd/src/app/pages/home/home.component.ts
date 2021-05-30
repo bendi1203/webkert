@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CATEGORIES } from 'src/app/shared/database/category.database';
-import { REKORDS } from './../../shared/database/rekord.database';
+//import { REKORDS } from './../../shared/database/rekord.database';
 import { MatDialog } from '@angular/material/dialog';
 import { RekordAddComponent } from '../rekord/add/rekord-add/rekord-add.component';
 import { Rekord } from 'src/app/shared/models/rekord.model';

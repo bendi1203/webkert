@@ -1,4 +1,4 @@
-import { Rekord } from '../models/rekord.model';
+/*import { Rekord } from '../models/rekord.model';
 //import {Medication, Effective, Perfomer, Dosage, Rate  } from '../database/rekord.database';
 
 export const REKORDS: Rekord[] = [
@@ -129,3 +129,4 @@ export const REKORDS: Rekord[] = [
         eventHistory:'nincs4',
     },
 ];
+*/

@@ -1,38 +1,196 @@
 <div *ngIf="rekord != null">
-  <p>{{rekord.instantiates}}</p>
-  <p>{{rekord.partOf}}</p>
-  <p>{{rekord.status}}</p>
-  <p>{{rekord.statusReason}}</p>
-  <p>{{rekord.category}}</p>
-  <p *ngIf="rekord.medication">
-    {{rekord.medication.medicationReference !== undefined ? rekord.medication.medicationReference : rekord.medication.medicationCodeableConcept}}
-  </p>
-  <p>{{rekord.subject}}</p>
-  <p>{{rekord.context}}</p>
-  <p>{{rekord.supportInformation}}</p>
-  <p *ngIf="rekord.effective">
-    {{rekord.effective.effectiveDateTime !== undefined ? rekord.effective.effectiveDateTime : rekord.effective.effectivePeriod}}
-  </p>
-  <p *ngIf="rekord.performer">{{rekord.performer.function}}, {{rekord.performer.actor}}</p>
-  <p>{{rekord.reasonCode}}</p>
-  <p>{{rekord.reasonReference}}</p>
-  <p>{{rekord.request}}</p>
-  <p>{{rekord.device}}</p>
-  <p>{{rekord.note}}</p>
-  <ul *ngIf="rekord.dosage">
-    <li>{{rekord.dosage.text}}<br></li>
-    <li> {{rekord.dosage.site}}<br></li>
-    <li>{{rekord.dosage.route}}<br></li>
-    <li>{{rekord.dosage.method}}<br></li>
-    <li>{{rekord.dosage.dose}}<br></li>
-    <ul *ngIf="rekord.dosage.rate">
-      <li>
-        {{rekord.dosage.rate.rateRatio !== undefined ? rekord.dosage.rate.rateRatio : rekord.dosage.rate.rateQuantity}}
-      </li>
+  <div *ngFor="let item of rekord.identifier">
+    <p>{{item.use}}</p>
+    <ul *ngIf="item.type">
+      <ul *ngFor="let item2 of item.type.coding">
+        <li>{{item2.system}}</li>
+        <li>{{item2.version}}</li>
+        <li>{{item2.code}}</li>
+        <li>{{item2.display}}</li>
+        <li>{{item2.userSelected}}</li>
+      </ul>
+      <li>{{item.type.text}}</li>
     </ul>
-  </ul>
-  <p>{{rekord.eventHistory}}</p>
+    <p>{{item.system}}</p>
+    <p>{{item.value}}</p>
+    <p *ngIf="item.period">
+      {{item.period.start}}, {{item.period.end}}
+    </p>
+    <p>{{item.assigner}}</p>
+  </div>
+
+  <div *ngFor="let item3 of rekord.instantiates">
+    <p>{{rekord.instantiates}}</p>
+  </div>
+
+  <div>
+    <p>{{rekord.partOf}}</p>
+  </div>
+
+  <div>
+    <p>{{rekord.status}}</p>
+  </div>
+
+  <div *ngFor="let item4 of rekord.statusReason">
+    <ul *ngIf="item4.coding">
+      <ul *ngFor="let item5 of item4.coding">
+        <li>{{ item5.system }}</li>
+        <li>{{ item5.version }}</li>
+        <li>{{ item5.code }}</li>
+        <li>{{ item5.display }}</li>
+        <li>{{ item5.userSelected }}</li>
+      </ul>
+      <p>{{item4.text}}</p>
+    </ul>
+  </div>
+
+  <div *ngIf="rekord.category && rekord.category.coding ">
+    <ul *ngFor="let item7 of rekord.category.coding">
+      <li>{{ item7.system }}</li>
+      <li>{{ item7.version }}</li>
+      <li>{{ item7.code }}</li>
+      <li>{{ item7.display }}</li>
+      <li>{{ item7.userSelected }}</li>
+    </ul>
+  </div>
+
+  <div>
+    <p *ngIf="rekord.medication">
+      {{rekord.medication.medicationReference !== undefined ? rekord.medication.medicationReference : rekord.medication.medicationCodeableConcept}}
+    </p>
+  </div>
+
+  <div>
+    <p>{{rekord.subject}}</p>
+  </div>
+
+  <div>
+    <p>{{rekord.context}}</p>
+  </div>
+
+  <div *ngFor="let item8 of rekord.supportInformation">
+    <p>{{rekord.supportInformation}}</p>
+  </div>
+
+  <div>
+    <p *ngIf="rekord.effective">
+      {{rekord.effective.effectiveDateTime !== undefined ? rekord.effective.effectiveDateTime : rekord.effective.effectivePeriod}}
+    </p>
+  </div>
+
+  <div *ngFor="let perf of rekord.performer">
+    <ng-container *ngIf="perf.function && perf.function.coding">
+      <ul *ngFor="let coding of perf.function.coding">
+        <li>{{ coding.system }}</li>
+        <li>{{ coding.version }}</li>
+        <li>{{ coding.code }}</li>
+        <li>{{ coding.display }}</li>
+        <li>{{ coding.userSelected }}</li>
+      </ul>
+      <p>{{perf.function.text}}</p>
+    </ng-container>
+    <p>{{perf.actor}}</p>
+  </div>
+
+  <div *ngFor="let item12 of rekord.statusReason">
+    <ng-container *ngIf="item12.coding">
+      <ul *ngFor="let item13 of item12.coding">
+        <li>{{ item13.system }}</li>
+        <li>{{ item13.version }}</li>
+        <li>{{ item13.code }}</li>
+        <li>{{ item13.display }}</li>
+        <li>{{ item13.userSelected }}</li>
+      </ul>
+      <p>{{item12.text}}</p>
+    </ng-container>
+  </div>
+
+  <div *ngFor="let item14 of rekord.reasonReference">
+    <p>{{rekord.reasonReference}}</p>
+  </div>
+
+  <div>
+    <p>{{rekord.request}}</p>
+  </div>
+
+  <div *ngFor="let item15 of rekord.device">
+    <p>{{rekord.device}}</p>
+  </div>
+
+  <div>
+    <p>{{rekord.note}}</p>
+  </div>
+
+
+  <div *ngIf="rekord.dosage">
+    <li>{{rekord.dosage.text}}</li>
+
+    <ul *ngIf="rekord.dosage.site">
+      <div *ngIf="rekord.dosage.site">
+        <ul *ngIf="rekord.dosage.site.coding">
+          <ul *ngFor="let item17 of rekord.dosage.site.coding">
+            <li>{{ item17.system }}</li>
+            <li>{{ item17.version }}</li>
+            <li>{{ item17.code }}</li>
+            <li>{{ item17.display }}</li>
+            <li>{{ item17.userSelected }}</li>
+          </ul>
+          <p>{{rekord.dosage.site.text}}</p>
+        </ul>
+      </div>
+    </ul>
+
+    <ul *ngIf="rekord.dosage.route">
+      <div *ngIf="rekord.dosage.route">
+        <ul *ngIf="rekord.dosage.route.coding">
+          <ul *ngFor="let item19 of rekord.dosage.route.coding">
+            <li>{{ item19.system }}</li>
+            <li>{{ item19.version }}</li>
+            <li>{{ item19.code }}</li>
+            <li>{{ item19.display }}</li>
+            <li>{{ item19.userSelected }}</li>
+          </ul>
+          <p>{{rekord.dosage.route.text}}</p>
+        </ul>
+      </div>
+    </ul>
+
+    <ul *ngIf="rekord.dosage.method">
+      <div *ngIf="rekord.dosage.method">
+        <ul *ngIf="rekord.dosage.method.coding">
+          <ul *ngFor="let item21 of rekord.dosage.method.coding">
+            <li>{{ item21.system }}</li>
+            <li>{{ item21.version }}</li>
+            <li>{{ item21.code }}</li>
+            <li>{{ item21.display }}</li>
+            <li>{{ item21.userSelected }}</li>
+          </ul>
+          <p>{{rekord.dosage.method.text}}</p>
+        </ul>
+      </div>
+    </ul>
+
+    <ng-container *ngIf="rekord.dosage.dose">
+      <p>{{ rekord.dosage.dose.value }}</p>
+      <p>{{ rekord.dosage.dose.unit }}</p>
+      <p>{{ rekord.dosage.dose.system }}</p>
+      <p>{{ rekord.dosage.dose.code }}</p>
+    </ng-container>
+
+    <ul *ngIf="rekord.dosage.rate">
+          <p>{{rekord.dosage.rate.value }}</p>
+          <p>{{rekord.dosage.rate.unit }}</p>
+          <p>{{rekord.dosage.rate.system }}</p>
+          <p>{{rekord.dosage.rate.code }}</p>
+    </ul>
+  </div>
+
+  <div *ngFor="let item23 of rekord.eventHistory">
+    <p>{{rekord.eventHistory}}</p>
+  </div>
+
+
 </div>
-<button mat-mini-fab color="none" aria-label="Delete" class="delete" (click)="delete()"[routerLink] = "['/home']">
-  <mat-icon >delete</mat-icon>
+<button mat-mini-fab color="none" aria-label="Delete" class="delete" (click)="delete()" [routerLink]="['/home']">
+  <mat-icon>delete</mat-icon>
 </button>
